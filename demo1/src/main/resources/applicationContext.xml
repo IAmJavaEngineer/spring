@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    引入其他配置文件（分模块开发）-->
+<!--    <import resource="applicationContext-user.xml"/>-->
+<!--    <import resource="applicationContext-product.xml"/>-->
+
+<!--    <bean id="userDao" class="com.wangjinghui.dao.Impl.UserDaoImpl" scope="singleton"></bean>-->
+<!--     id：Bean实例在Spring容器中的唯一标识
+         class：Bean的全限定名称
+        Bean标签范围配置
+        scope：指对象的作用范围，取值如下：
+        singleton 默认值，单例的
+        prototype 多例的
+        1）当scope的取值为singleton时
+            Bean的实例化个数：1个
+            Bean的实例化时机：当Spring核心文件被加载时，实例化配置的Bean实例
+            Bean的生命周期：
+             对象创建：当应用加载，创建容器时，对象就被创建了
+             对象运行：只要容器在，对象一直活着
+             对象销毁：当应用卸载，销毁容器时，对象就被销毁了
+        2）当scope的取值为prototype时
+             Bean的实例化个数：多个
+             Bean的实例化时机：当调用getBean()方法时实例化Bean
+              对象创建：当使用对象时，创建新的对象实例
+              对象运行：只要对象在使用中，就一直活着
+              对象销毁：当对象长时间不用时，被 Java 的垃圾回收器回收了
+             Bean生命周期配置
+              init-method：指定类中的初始化方法名称
+              destroy-method：指定类中销毁方法名称-->
+<!--    <bean id="userDao" class="com.wangjinghui.dao.Impl.UserDaoImpl" scope="singleton" init-method="init" destroy-method="destroy"></bean>-->
+
+<!--    工厂静态方法实例化-->
+<!--    <bean id="userDao" class="com.wangjinghui.factory.StaticFactory" factory-method="getUserDao"></bean>-->
+<!--    工厂实例方法实例化-->
+<!--    <bean id="factory" class="com.wangjinghui.factory.DynamicFactory" ></bean>-->
+<!--    <bean id="userDao" factory-bean="factory" factory-method="getUser"/>-->
+    <bean id="u1" class="com.wangjinghui.pojo.User">
+        <property name="name" value="u1对象"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="u2" class="com.wangjinghui.pojo.User">
+        <property name="name" value="u2对象"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="userDao" class="com.wangjinghui.dao.Impl.UserDaoImpl">
+<!--        对象属性值用ref，普通属性值用value-->
+<!--        <property name="userName" value="张三"/>-->
+<!--        <property name="age" value="18" />-->
+        <property name="strList">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+
+        <property name="users">
+            <list>
+<!--                这个list标签中的代码会产生4个User对象，前两个用bean标签直接在list中产生，后两个用ref标签引用已经产生的对象-->
+                <bean id="user1" class="com.wangjinghui.pojo.User">
+                    <property name="name" value="user1对象"/>
+                    <property name="age" value="19"/>
+                </bean>
+                <bean class="com.wangjinghui.pojo.User">
+                    <property name="name" value="没有id属性的对象"/>
+                    <property name="age" value="19"/>
+                </bean>
+                <ref bean="u1"/>
+                <ref bean="u2"/>
+            </list>
+        </property>
+        <property name="userMap">
+            <map>
+                <entry key="map中的user1" value-ref="u1"/>
+                <entry key="map中的user2" value-ref="u2"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="user1">properties中的user1</prop>
+                <prop key="user2">properties中的user2</prop>
+            </props>
+        </property>
+    </bean>
+<!--    set方法注入-->
+<!--    <bean id="userService" class="com.wangjinghui.service.Impl.UserServiceImpl">-->
+<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
+
+<!--    p命名空间-->
+<!--    <bean id="userService" class="com.wangjinghui.service.Impl.UserServiceImpl" p:userDao-ref="userDao"/>-->
+<!--    有参构造注入-->
+    <bean id="userService" class="com.wangjinghui.service.Impl.UserServiceImpl">
+<!--        name中的userDao表示有参构造的参数名，ref中的userDao表示bean标签生产的对象，它的唯一标识是userDao-->
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
+<!--    <bean id="userService" class="com.wangjinghui.service.Impl.UserServiceImpl">-->
+<!--        &lt;!&ndash;        name中的userDao表示有参构造的参数名，ref中的userDao表示bean标签生产的对象，它的唯一标识是userDao&ndash;&gt;-->
+<!--        <constructor-arg name="userDao" ref="userDao"></constructor-arg>-->
+<!--    </bean>-->
+
+</beans>
