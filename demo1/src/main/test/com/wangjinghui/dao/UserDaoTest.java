@@ -1,5 +1,6 @@
 package com.wangjinghui.dao;
 
+import com.spring.pojo.UserExample;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -16,6 +17,7 @@ public class UserDaoTest extends TestCase {
 //        UserDao userDao1 = (UserDao) context.getBean("userDao");
 //        System.out.println(userDao1);
         ((ClassPathXmlApplicationContext) context).close();
+        UserExample userExample = new UserExample();
 
     }
 
