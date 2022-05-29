@@ -18,6 +18,7 @@
       <module>demo8_aop</module>
       <module>demo9_spring_tx</module>
       <module>demo10_spring_tx_anno</module>
+      <module>ssm</module>
   </modules>
   <packaging>pom</packaging>
 
