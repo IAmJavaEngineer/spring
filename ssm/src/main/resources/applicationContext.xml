@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- 不扫描已由springmvc扫描的controller注解 -->
-	<context:component-scan base-package="com.qizegao">
+	<context:component-scan base-package="com.spring">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -34,7 +34,7 @@
 	</bean>
 
 	<!-- 扫描dao接口 -->
-	<mybatis-spring:scan base-package="com.qizegao.dao"/>	
+	<mybatis-spring:scan base-package="com.spring.dao"/>
 	
 	<!-- 配置事务控制 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

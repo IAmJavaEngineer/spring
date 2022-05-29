@@ -1,12 +1,12 @@
-package com.qizegao.service;
+package com.spring.service;
 
 import java.util.List;
 
+import com.spring.dao.DepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qizegao.bean.Department;
-import com.qizegao.dao.DepartmentMapper;
+import com.spring.bean.Department;
 
 @Service
 public class DepartmentService {

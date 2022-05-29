@@ -22,7 +22,7 @@
     <mvc:default-servlet-handler/>
 
 <!--    4、组件扫描，扫描Controller-->
-    <context:component-scan base-package="com.qizegao.controller"/>
+    <context:component-scan base-package="com.spring.controller"/>
 
 <!--    &lt;!&ndash;    配置拦截器&ndash;&gt;-->
 <!--    <mvc:interceptors>-->

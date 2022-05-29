@@ -1,18 +1,14 @@
-package com.qizegao.test;
+package com.spring.test;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-
+import com.spring.dao.DepartmentMapper;
+import com.spring.dao.StudentMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.qizegao.bean.Department;
-import com.qizegao.bean.Student;
-import com.qizegao.dao.DepartmentMapper;
-import com.qizegao.dao.StudentMapper;
-
+import com.spring.bean.Student;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,10 +16,10 @@ import com.qizegao.dao.StudentMapper;
 public class MapperTest {
 
 	@Autowired
-	DepartmentMapper departmentMapper;
+    DepartmentMapper departmentMapper;
 	
 	@Autowired
-	StudentMapper studentMapper;
+    StudentMapper studentMapper;
 	
 	@Test
 	public void test() {

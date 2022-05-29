@@ -1,4 +1,4 @@
-package com.qizegao.bean;
+package com.spring.bean;
 
 import java.util.ArrayList;
 import java.util.List;

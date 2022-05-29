@@ -1,7 +1,7 @@
-package com.qizegao.dao;
+package com.spring.dao;
 
-import com.qizegao.bean.Student;
-import com.qizegao.bean.StudentExample;
+import com.spring.bean.Student;
+import com.spring.bean.StudentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,4 +1,4 @@
-package com.qizegao.controller;
+package com.spring.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.qizegao.bean.Msg;
+import com.spring.bean.Msg;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.qizegao.bean.Student;
-import com.qizegao.service.StudentService;
+import com.spring.bean.Student;
+import com.spring.service.StudentService;
 
 @Controller
 public class StudentController {

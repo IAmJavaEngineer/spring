@@ -1,15 +1,15 @@
-package com.qizegao.controller;
+package com.spring.controller;
 
 import java.util.List;
 
+import com.spring.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.qizegao.bean.Department;
-import com.qizegao.bean.Msg;
-import com.qizegao.service.DepartmentService;
+import com.spring.bean.Department;
+import com.spring.bean.Msg;
 
 @Controller
 public class DepartmentController {

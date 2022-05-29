@@ -1,20 +1,20 @@
-package com.qizegao.service;
+package com.spring.service;
 
 import java.util.List;
 
+import com.spring.dao.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qizegao.bean.Student;
-import com.qizegao.bean.StudentExample;
-import com.qizegao.bean.StudentExample.Criteria;
-import com.qizegao.dao.StudentMapper;
+import com.spring.bean.Student;
+import com.spring.bean.StudentExample;
+import com.spring.bean.StudentExample.Criteria;
 
 @Service
 public class StudentService {
 
 	@Autowired
-	StudentMapper studentMapper;
+    StudentMapper studentMapper;
 	
 	//查询所有学生
 	public List<Student> getAll() {

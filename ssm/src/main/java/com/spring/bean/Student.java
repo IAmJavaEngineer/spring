@@ -1,4 +1,4 @@
-package com.qizegao.bean;
+package com.spring.bean;
 
 import javax.validation.constraints.Pattern;
 

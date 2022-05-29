@@ -1,4 +1,4 @@
-package com.qizegao.bean;
+package com.spring.bean;
 
 public class Department {
     private Integer deptId;
